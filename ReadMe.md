@@ -305,23 +305,6 @@ The objective is to develop the ability to **design software using objects and r
 
 ---
 
-## 🔭 Next Steps
-
-The next stages of the journey will focus on:
-
-* Completing the Library Management System
-* Advanced inheritance
-* Abstract Base Classes
-* More advanced polymorphism
-* Advanced object composition
-* SOLID principles
-* Unit testing
-* Refactoring
-* Design patterns
-* Clean architecture
-* Integration with larger Python applications
-
----
 
 ## 👨‍💻 Author
 
