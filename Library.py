@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 class books:
     def __init__(self, title, author, isbn, year, available=True):
         self.title = title
@@ -100,6 +102,104 @@ class Library:
     def list_books(self):
         for book in self.Book:
             print(book)
+
+class User:
+    def __init__(self, name, email, user_id):
+        self.name = name
+        self.email = email
+        self.user_id = user_id
+
+    def __str__(self):
+        return f"User: {self.name}, Email: {self.email}, ID: {self.user_id}"
+
+    @property
+    def name(self):
+        return self._name 
+
+    @name.setter
+    def name(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Name must be a string.")
+        self._name = value  
+
+    @property
+    def email(self):
+        return self._email
+
+
+    @email.setter
+    def email(self, value):
+        if not isinstance(value, str):
+            raise ValueError("Email must be a string.")
+        self._email = value 
+
+    @property
+    def user_id(self):
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, value):
+        if not isinstance(value, int):
+            raise ValueError("User ID must be an integer.")
+        self._user_id = value
+
+
+user = User("David Francis", "Francis@gmail.com", 1)
+print(user)
+
+class Loan:
+    def __init__(self, book, user):
+        self.book = book
+        self.user = user
+        self.borrowed_date = datetime.now()
+        self.due_date = self.borrowed_date + timedelta(days=14)
+
+    def __str__(self):
+        return f"Loan: {self.book.title} borrowed by {self.user.name}, Due date: {self.due_date.strftime('%Y-%m-%d')}"
+
+    @property
+    def book(self):
+        return self._book
+
+    @book.setter
+    def book(self, value):
+        if not isinstance(value, books):
+            raise ValueError("Book must be an instance of the books class.")
+        self._book = value    
+
+    @property
+    def user(self):
+        return self._user
+
+    @user.setter
+    def user(self, value):
+        if not isinstance(value, User):
+            raise ValueError("User must be an instance of the User class.")
+        self._user = value
+
+    @property
+    def borrowed_date(self):
+        return self._borrowed_date
+
+    @borrowed_date.setter
+    def borrowed_date(self, value):
+        if not isinstance(value, datetime):
+            raise ValueError("Borrowed date must be a datetime object.")
+        self._borrowed_date = value
+
+    @property
+    def due_date(self):
+        return self._due_date
+
+    @due_date.setter
+    def due_date(self, value):
+        if not isinstance(value, datetime):
+            raise ValueError("Due date must be a datetime object.")
+        self._due_date = value
+
+loan = Loan(book1, user)
+print(loan)                               
+
 
 
 library = Library([book1, book2])   
